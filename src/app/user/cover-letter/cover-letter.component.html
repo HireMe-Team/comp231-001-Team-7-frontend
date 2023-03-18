@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h1>Create a Cover Letter</h1>
+  
+    <div *ngIf="coverLetter">
+      <h2>Your Cover Letter</h2>
+  
+      <p><strong>Position:</strong> {{ coverLetter.position }}</p>
+      <p><strong>Company:</strong> {{ coverLetter.company }}</p>
+      <p><strong>Message:</strong></p>
+      <p>{{ coverLetter.message }}</p>
+      <button class="btn btn-secondary" (click)="toggleForm()">Edit</button>
+    </div>
+  
+    <form *ngIf="showForm" #coverLetterForm="ngForm" (ngSubmit)="onSubmit(coverLetterForm)">
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" class="form-control" id="position" name="position" required [(ngModel)]="position">
+      </div>
+  
+      <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" id="company" name="company" required [(ngModel)]="company">
+      </div>
+  
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="8" required [(ngModel)]="message"></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
