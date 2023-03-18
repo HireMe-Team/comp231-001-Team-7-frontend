@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h1>Admin Dashboard</h1>
+
+  <div class="mb-3">
+    <label for="total-users" class="form-label">Total Users:</label>
+    <span id="total-users">{{ totalUsers }}</span>
+  </div>
+
+  <!-- TODO: Add form to create a new admin account -->
+  <form #adminForm="ngForm" (ngSubmit)="onSubmit(adminForm)">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        required
+        [(ngModel)]="email"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        required
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Admin Account</button>
+  </form>
+  <app-issue-list></app-issue-list>
+</div>
