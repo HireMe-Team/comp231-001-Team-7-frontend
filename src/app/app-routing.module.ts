@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { JobListComponent } from './jobs/job-list/job-list.component';
+import { CoverLetterComponent } from './user/cover-letter/cover-letter.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
+  {path: 'create-cover-letter', component: CoverLetterComponent}
 ];
 
 @NgModule({

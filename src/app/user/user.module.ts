@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SecuritySettingsComponent } from './security-settings/security-settings.component';
 import { FormsModule } from '@angular/forms';
+import { CoverLetterComponent } from './cover-letter/cover-letter.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     ProfileComponent,
     SecuritySettingsComponent,
+    CoverLetterComponent,
   ],
   imports: [FormsModule, CommonModule],
 })
