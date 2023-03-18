@@ -13,6 +13,6 @@ import { FormsModule } from '@angular/forms';
     ProfileComponent,
     SecuritySettingsComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, CommonModule],
 })
 export class UserModule {}
