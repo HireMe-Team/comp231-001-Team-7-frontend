@@ -14,7 +14,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
-  {path: 'create-cover-letter', component: CoverLetterComponent}
+  { path: 'create-cover-letter', component: CoverLetterComponent },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({
