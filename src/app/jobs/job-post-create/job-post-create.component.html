@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" class="form-control" id="position" name="position" [(ngModel)]="job.position" required>
+      </div>
+      <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" id="company" name="company" [(ngModel)]="job.company" required>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Job Type</label>
+        <input type="text" class="form-control" id="type" name="type" [(ngModel)]="job.type" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Job Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="job.description" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="qualifications" class="form-label">Qualifications</label>
+        <textarea class="form-control" id="qualifications" name="qualifications" [(ngModel)]="job.qualifications" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="job.salary" required>
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <input type="text" class="form-control" id="status" name="status" [(ngModel)]="job.status" required>
+      </div>
+      <div class="mb-3">
+        <label for="createDate" class="form-label">Create Date</label>
+        <input type="date" class="form-control" id="createDate" name="createDate" [(ngModel)]="job.createDate" required>
+      </div>
+      <div class="mb-3">
+        <label for="closingDate" class="form-label">Closing Date</label>
+        <input type="date" class="form-control" id="closingDate" name="closingDate" [(ngModel)]="job.closingDate" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!jobForm.form.valid">Create Job Post</button>
+    </form>
+  </div>
+  
