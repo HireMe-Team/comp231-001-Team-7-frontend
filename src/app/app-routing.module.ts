@@ -6,6 +6,7 @@ import { JobPostCreateComponent } from './jobs/job-post-create/job-post-create.c
 import { JobPostComponent } from './jobs/job-post/job-post.component';
 import { CoverLetterComponent } from './user/cover-letter/cover-letter.component';
 import { LoginComponent } from './user/login/login.component';
+import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: JobPostComponent,
+  },
+  {
+    path: 'users/profile/:id',
+    component: ProfileComponent,
   },
   {
     path: 'admin',
