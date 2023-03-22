@@ -19,7 +19,6 @@ export class JobListComponent implements OnInit {
       location: 'San Francisco, CA',
       image: 'https://via.placeholder.com/150',
     },
-    // Add more job posts here
   ];
 
   constructor() {}
