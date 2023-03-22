@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { JobListComponent } from './jobs/job-list/job-list.component';
+import { JobPostComponent } from './jobs/job-post/job-post.component';
+import { JobsService } from './services/jobs.service';
 import { CoverLetterComponent } from './user/cover-letter/cover-letter.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -15,6 +17,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
   { path: 'create-cover-letter', component: CoverLetterComponent },
+  {
+    path: 'post/:id',
+    component: JobPostComponent,
+  },
   {
     path: 'admin',
     loadChildren: () =>
