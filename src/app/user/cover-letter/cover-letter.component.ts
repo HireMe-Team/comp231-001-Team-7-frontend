@@ -40,13 +40,6 @@ export class CoverLetterComponent {
     console.log('Cover letter form submitted');
     console.log(form.value); 
     // TODO: to create a method in user service to issue a post request, dependent on Joe's task
-    // this.coverLetter= {
-    //   position: form.value.position,
-    //   company: form.value.company,
-    //   message: form.value.message,
-    // };
-
-    
     // TODO: Call API to save cover letter to database
     this.userService.createCoverLetter(form.value).subscribe(data => {
       this.coverLetter= {
