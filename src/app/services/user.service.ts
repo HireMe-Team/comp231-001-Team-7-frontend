@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import IUser from '../models/user.model';
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,13 @@ export class UserService {
     // TODO: return this.http.get(logout api endpoint)
     return null;
   }
+
+createCoverLetter(requestBody:{position: string, company: string, message: string}): Observable <any> {
+    // TODO: to issue post request /api/user/cover-letter 
+    // TODO: return this.http.post("http://localhost:3000/api/user/cover-letter", requestBody)
+    return of(requestBody);
+}
+
   //TODO: update profile fetching
   //updateProfile(updateForm?): Observable<any> {
   // return this.http.post(updateProfile api endpoint, updateForm,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cover-letter',
@@ -17,8 +18,8 @@ export class CoverLetterComponent {
   };
   showForm = false;
 
-  // constructor(private userService: UserService) { }
-  constructor() {}
+   constructor(private userService: UserService) { }
+  // constructor() {}
   ngOnInit() {
     // this.userService.getUserCoverLetter().subscribe(
     //   (data: any) => {
@@ -37,8 +38,17 @@ export class CoverLetterComponent {
 
   onSubmit(form) {
     console.log('Cover letter form submitted');
-    console.log(form.value);
+    console.log(form.value); 
+    // TODO: to create a method in user service to issue a post request, dependent on Joe's task
     // TODO: Call API to save cover letter to database
+    this.userService.createCoverLetter(form.value).subscribe(data => {
+      this.coverLetter= {
+      position: data.position,
+      company: data.company,
+      message: data.message,
+    };
+
+    })
   }
 
   toggleForm() {
