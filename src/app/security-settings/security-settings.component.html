@@ -1,0 +1,36 @@
+<p>security-settings works!</p>
+<form [formGroup]="securitySettingsForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+      <div *ngIf="securitySettingsForm.get('name').invalid && (securitySettingsForm.get('name').dirty || securitySettingsForm.get('name').touched)">
+        <div *ngIf="securitySettingsForm.get('name').errors.required">Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" formControlName="email" id="email">
+      <div *ngIf="securitySettingsForm.get('email').invalid && (securitySettingsForm.get('email').dirty || securitySettingsForm.get('email').touched)">
+        <div *ngIf="securitySettingsForm.get('email').errors.required">Email is required.</div>
+        <div *ngIf="securitySettingsForm.get('email').errors.email">Invalid email format.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password">
+      <div *ngIf="securitySettingsForm.get('password').invalid && (securitySettingsForm.get('password').dirty || securitySettingsForm.get('password').touched)">
+        <div *ngIf="securitySettingsForm.get('password').errors.required">Password is required.</div>
+        <div *ngIf="securitySettingsForm.get('password').errors.minlength">Password must be at least 8 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="security-question">Security Question</label>
+      <input type="text" class="form-control" formControlName="securityQuestion" id="security-question">
+      <div *ngIf="securitySettingsForm.get('securityQuestion').invalid && (securitySettingsForm.get('securityQuestion').dirty || securitySettingsForm.get('securityQuestion').touched)">
+        <div *ngIf="securitySettingsForm.get('securityQuestion').errors.required">Security question is required.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="securitySettingsForm.invalid">Save</button>
+  </form>
+  
+  

@@ -1,0 +1,13 @@
+<p>document-list works!</p>
+<div>
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="onUpload()">Upload</button>
+  </div>
+  
+  <ul>
+    <li *ngFor="let document of documents">
+      {{ document.name }}
+      <button (click)="onDelete(document)">Delete</button>
+    </li>
+  </ul>
+  

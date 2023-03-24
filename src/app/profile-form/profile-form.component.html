@@ -1,0 +1,49 @@
+<p>profile-form works!</p>
+<form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+    <h2>Personal Information</h2>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+  
+    <h2>Education</h2>
+    <div class="form-group">
+      <label for="degree">Degree</label>
+      <input type="text" id="degree" name="degree" [(ngModel)]="degree">
+    </div>
+    <div class="form-group">
+      <label for="university">University</label>
+      <input type="text" id="university" name="university" [(ngModel)]="university">
+    </div>
+  
+    <h2>Work Experience</h2>
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" [(ngModel)]="company">
+    </div>
+    <div class="form-group">
+      <label for="position">Position</label>
+      <input type="text" id="position" name="position" [(ngModel)]="position">
+    </div>
+  
+    <h2>Skills</h2>
+    <div class="form-group">
+      <label for="skill1">Skill 1</label>
+      <input type="text" id="skill1" name="skill1" [(ngModel)]="skill1">
+    </div>
+    <div class="form-group">
+      <label for="skill2">Skill 2</label>
+      <input type="text" id="skill2" name="skill2" [(ngModel)]="skill2">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
