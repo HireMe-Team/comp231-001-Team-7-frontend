@@ -1,5 +1,5 @@
 export default interface IUser {
-  userId: number;
+  userId?: number;
   email: string;
   password: string;
   role: 'job_seeker' | 'recruiter' | 'admin';
