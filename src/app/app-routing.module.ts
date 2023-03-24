@@ -9,6 +9,7 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'jobs-create', component: JobPostCreateComponent },
   { path: 'create-cover-letter', component: CoverLetterComponent },
   {
