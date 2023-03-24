@@ -11,7 +11,6 @@ export class JobHuntingSuggestionComponent implements OnInit {
   constructor(private jobServices: JobsService) {}
   ngOnInit(): void {
     this.jobServices.getJobSeekingSuggestions().subscribe((result) => {
-      console.log(result);
       this.articles=result.slice(0,10)
     });
   }

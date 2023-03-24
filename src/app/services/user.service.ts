@@ -1,84 +1,74 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import IUser from '../models/user.model';
+import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private readonly baseUrl="http://localhost:3000/api";
+  public setUserInfo(token: string) {
+    localStorage.setItem('token', token);
+  }
+  private readonly baseUrl = 'http://localhost:3000/api';
+  private currentUser: IUser;
   constructor(private http: HttpClient) {}
+
   register(user: IUser): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/register`, user)
-    
-  }
-  login(user): Observable<any> {
-    // TODO: return this.http.post(login api endpoint, user)
-    return null;
-  }
-  logout(): Observable<any> {
-    // TODO: return this.http.get(logout api endpoint)
-    return null;
+    return this.http.post(`${this.baseUrl}/users/register`, user);
   }
 
-createCoverLetter(requestBody:{position: string, company: string, message: string}): Observable <any> {
-    // TODO: to issue post request /api/user/cover-letter 
+  login(loginInfo): Observable<{
+    success: boolean;
+    token: string;
+    userId: string;
+  }> {
+    return this.http
+      .post<{
+        success: boolean;
+        token: string;
+        userId: string;
+      }>(`${this.baseUrl}/users/login`, loginInfo)
+      .pipe(
+        map((response) => {
+          const token = response.token;
+          const userId = response.userId;
+          console.log({ token });
+          console.log({ userId });
+          localStorage.setItem('token', token);
+          localStorage.setItem('userId', userId);
+          return response;
+        })
+      );
+  }
+
+  logout(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/logout`);
+  }
+
+  createCoverLetter(requestBody: {
+    position: string;
+    company: string;
+    message: string;
+  }): Observable<any> {
+    // TODO: to issue post request /api/user/cover-letter
     // TODO: return this.http.post("http://localhost:3000/api/user/cover-letter", requestBody)
     return of(requestBody);
-}
+  }
 
-  //TODO: update profile fetching
-  //updateProfile(updateForm?): Observable<any> {
-  // return this.http.post(updateProfile api endpoint, updateForm,
-  //{headers: {authentication: 'Basic ' + localStorage.getItem('token'}}
-  //)
-  //};
-  getUser(id: number): IUser {
-    const user: IUser = {
-      userId: 1,
-      email: 'jane.doe@example.com',
-      password: 'password123',
-      role: 'job_seeker',
-      firstName: 'Jane',
-      lastName: 'Doe',
-      phoneNumber: '555-1234',
-      profileImage: 'https://example.com/profile.jpg',
-      bio: 'I am a software developer with experience in Angular and Node.js.',
-      location: 'New York, NY',
-      createdAt: new Date('2022-03-20T12:00:00Z'),
-      updatedAt: new Date('2022-03-22T10:30:00Z'),
-      skills: ['Angular', 'Node.js', 'JavaScript', 'HTML', 'CSS'],
-      experience: [
-        {
-          title: 'Software Developer',
-          company: 'Acme Corp',
-          startDate: new Date('2020-01-01T00:00:00Z'),
-          endDate: new Date('2022-03-19T23:59:59Z'),
-          description:
-            'Worked on the development of a web-based project management tool using Angular and Node.js.',
-          location: 'New York, NY',
-        },
-        {
-          title: 'Web Developer',
-          company: 'XYZ Inc',
-          startDate: new Date('2018-06-01T00:00:00Z'),
-          endDate: new Date('2019-12-31T23:59:59Z'),
-          description:
-            'Developed and maintained several company websites using WordPress, HTML, and CSS.',
-          location: 'San Francisco, CA',
-        },
-      ],
-      education: [
-        {
-          degree: 'Bachelor of Science',
-          institution: 'University of California, Berkeley',
-          startDate: new Date('2014-08-01T00:00:00Z'),
-          endDate: new Date('2018-05-31T23:59:59Z'),
-          description: 'Studied Computer Science and Mathematics.',
-          category: 'Bachelor',
-        },
-      ],
-    };
-    return user;
+  getToken() {
+    return localStorage.getItem('token');
+  }
+  public getUserInfo() {
+    const token = this.getToken();
+    if (token != null) {
+      let decode: any = jwt_decode(token);
+      const user: IUser = decode.user;
+      return user;
+    }
+    return undefined;
+  }
+  public clearUserInfo() {
+    localStorage.clear();
   }
 }

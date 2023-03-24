@@ -3,8 +3,8 @@
     <div class="col text-center">
       <h1>Welcome to HireMe</h1>
       <p>Your one-stop platform for job seeking and hiring.</p>
-      <div class="mt-4">
-        <a href="/register" class="btn btn-primary">Sign Up</a>
+      <div class="mt-4" *ngIf="!loggedIn">
+        <a href="/register" class="btn btn-primary px-2">Sign Up</a>
         <a href="/login" class="btn btn-outline-primary">Log In</a>
       </div>
     </div>

@@ -14,13 +14,21 @@
 
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a routerLink="/register" class="nav-link">Register</a>
+        <a routerLink="/jobs-posting" class="nav-link">Jobs</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/login" class="nav-link">Login</a>
+        <a routerLink="/register" class="nav-link" *ngIf="!loggedIn">Register</a>
       </li>
-      <li class="nav-item"><a routerLink="/jobs-posting" class="nav-link">Jobs</a></li>
-      <li class="nav-item"><a routerLink="/profile" class="nav-link">Profile</a></li>
+      <li class="nav-item">
+        <a routerLink="/login" class="nav-link" *ngIf="!loggedIn">Login</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/profile" class="nav-link" *ngIf="loggedIn">Hello {{showingUsername}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link user-select-none pe-auto" (click)="logout()" *ngIf="loggedIn">Logout</a>
+      </li>
+      
     </ul>
   </header>
 </div>

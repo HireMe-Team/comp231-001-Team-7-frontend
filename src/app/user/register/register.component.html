@@ -1,111 +1,120 @@
 <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2>Register</h2>
-        <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
-          <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              [(ngModel)]="user.firstName"
-              name="firstName"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              [(ngModel)]="user.lastName"
-              name="lastName"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="phoneNumber" class="form-label">Phone Number</label>
-            <input
-              type="text"
-              class="form-control"
-              id="phoneNumber"
-              [(ngModel)]="user.phoneNumber"
-              name="phoneNumber"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              [(ngModel)]="user.email"
-              name="email"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="profileImage" class="form-label">Profile Image</label>
-            <input
-              type="text"
-              class="form-control"
-              id="profileImage"
-              [(ngModel)]="user.profileImage"
-              name="profileImage"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              [(ngModel)]="user.password"
-              name="password"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <select class="form-select" [(ngModel)]="user.role" name="role" aria-label="Role" required>
-              <option selected>Choose Role</option>
-              <option value="job_seeker">Job Seeker</option>
-              <option value="recruiter">Recruiter</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input
-              type="text"
-              class="form-control"
-              id="location"
-              [(ngModel)]="user.location"
-              name="location"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="bio" class="form-label">Bio</label>
-            <textarea
-              rows="4"
-              cols="50"
-              class="form-control"
-              id="bio"
-              [(ngModel)]="user.bio"
-              name="bio"
-              required
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Register</h2>
+      <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            [(ngModel)]="user.firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)]="user.lastName"
+            name="lastName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            [(ngModel)]="user.phoneNumber"
+            name="phoneNumber"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="profileImage" class="form-label">Profile Image</label>
+          <input
+            type="text"
+            class="form-control"
+            id="profileImage"
+            [(ngModel)]="user.profileImage"
+            name="profileImage"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select
+            class="form-select"
+            [(ngModel)]="user.role"
+            name="role"
+            aria-label="Role"
+            required
+          >
+            <option selected>Choose Role</option>
+            <option value="job_seeker">Job Seeker</option>
+            <option value="recruiter">Recruiter</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            [(ngModel)]="user.location"
+            name="location"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="bio" class="form-label">Bio</label>
+          <textarea
+            rows="4"
+            cols="50"
+            class="form-control"
+            id="bio"
+            [(ngModel)]="user.bio"
+            name="bio"
           ></textarea>
-          </div>
-          <button [disabled]="!registrationForm.valid" type="submit" class="btn btn-primary">Register</button>
-        </form>
-        <ng-container *ngIf="message">
-          <h3>{{ message }}</h3>
-        </ng-container>
-      </div>
+        </div>
+        <button
+          [disabled]="!registrationForm.valid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+      </form>
+      <ng-container *ngIf="message">
+        <h3>{{ message }}</h3>
+      </ng-container>
     </div>
   </div>
-  
+</div>
