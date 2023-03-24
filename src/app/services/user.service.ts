@@ -6,10 +6,11 @@ import IUser from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
+  private readonly baseUrl="http://localhost:3000/api";
   constructor(private http: HttpClient) {}
-  register(user): Observable<any> {
-    // TODO: return this.http.post(register api endpoint, user)
-    return null;
+  register(user: IUser): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/register`, user)
+    
   }
   login(user): Observable<any> {
     // TODO: return this.http.post(login api endpoint, user)
