@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import IJob from '../models/job.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JobsService {
+  private readonly baseUrl = 'http://localhost:3000/api';
   constructor(private http: HttpClient) {}
   //Example of getting a list of jobs-seeking suggestion
   getJobSeekingSuggestions(): Observable<
@@ -35,5 +36,11 @@ export class JobsService {
     };
 
     return job;
+  }
+
+  submitApplication(applicationInfo){
+   // TODO: to return http.post with the endpoint/ (e.g. POST job/application )
+   // reference: return this.http.post(`${this.baseUrl}/users/register`, user);
+    return of(true)
   }
 }

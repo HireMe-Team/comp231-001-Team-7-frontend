@@ -6,6 +6,9 @@ import { JobPostComponent } from './job-post/job-post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobPostCreateComponent } from './job-post-create/job-post-create.component';
 import { FormsModule } from '@angular/forms';
+import { JobApplicationComponent } from './job-application/job-application.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -13,8 +16,9 @@ import { FormsModule } from '@angular/forms';
     JobHuntingSuggestionComponent,
     JobPostComponent,
     JobPostCreateComponent,
+    JobApplicationComponent,
   ],
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
   exports: [JobListComponent, JobHuntingSuggestionComponent],
 })
 export class JobsModule {}
