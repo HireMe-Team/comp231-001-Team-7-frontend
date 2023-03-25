@@ -1,13 +1,13 @@
 //Job Interface
 export default interface IJob {
-  id: String;
-  position: String;
-  company: String;
-  type: String;
-  description: String;
-  qualifications: String;
-  salary: String;
-  status: String;
+  id: string;
+  position: string;
+  company: string;
+  type: string;
+  description: string;
+  qualifications: string;
+  salary: string;
+  status: string;
   createDate: Date;
   closingDate: Date;
 }

@@ -11,6 +11,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { AddEducationComponent } from './user/add-education/add-education.component';
 import { AddExperienceComponent } from './user/add-experience/add-experience.component';
+import { JobApplicationComponent } from './jobs/job-application/job-application.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
+  { path: 'job-application/:id', component: JobApplicationComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'profile/add-education',
