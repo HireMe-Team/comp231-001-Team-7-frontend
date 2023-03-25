@@ -1,11 +1,13 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col text-center">
-      <h1>Welcome to HireMe</h1>
-      <p>Your one-stop platform for job seeking and hiring.</p>
-      <div class="mt-4" *ngIf="!loggedIn">
-        <a href="/register" class="btn btn-primary px-2">Sign Up</a>
-        <a href="/login" class="btn btn-outline-primary">Log In</a>
+<div class="container-fluid bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col text-center">
+        <h1 class="display-4">Welcome to HireMe</h1>
+        <p class="lead mb-4">Your one-stop platform for job seeking and hiring.</p>
+        <div *ngIf="!loggedIn">
+          <a href="/register" class="btn btn-primary btn-lg mr-3">Sign Up</a>
+          <a href="/login" class="btn btn-outline-primary btn-lg">Log In</a>
+        </div>
       </div>
     </div>
   </div>

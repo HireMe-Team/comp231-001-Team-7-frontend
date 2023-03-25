@@ -6,6 +6,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SecuritySettingsComponent } from './security-settings/security-settings.component';
 import { FormsModule } from '@angular/forms';
 import { CoverLetterComponent } from './cover-letter/cover-letter.component';
+import { AddEducationComponent } from './add-education/add-education.component';
+import { AddExperienceComponent } from './add-experience/add-experience.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { CoverLetterComponent } from './cover-letter/cover-letter.component';
     ProfileComponent,
     SecuritySettingsComponent,
     CoverLetterComponent,
+    AddEducationComponent,
+    AddExperienceComponent,
   ],
   imports: [FormsModule, CommonModule],
 })
