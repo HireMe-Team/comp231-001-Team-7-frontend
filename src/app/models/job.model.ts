@@ -1,6 +1,5 @@
-//Job Interface
 export default interface IJob {
-  id: string;
+  _id: string;
   position: string;
   company: string;
   type: string;
@@ -9,6 +8,5 @@ export default interface IJob {
   salary: string;
   status: string;
   createDate: Date;
-  closingDate: Date;
+  closingDate?: Date;
 }
-

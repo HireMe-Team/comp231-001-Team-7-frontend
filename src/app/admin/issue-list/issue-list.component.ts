@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import IIssue from 'src/app/models/issue.model';
+import { IssuesService } from 'src/app/services/issues.service';
 
 @Component({
   selector: 'app-issue-list',
@@ -6,32 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./issue-list.component.css'],
 })
 export class IssueListComponent implements OnInit {
-  //TODO: issues: Issue[] = [];
-  issues: any[] = [
-    {
-      _id: '61200d7a67a3dc3f109d78bd',
-      userId: '2',
-      subject: 'Error when uploading profile picture',
-      description:
-        'I tried to upload a new profile picture, but I keep getting an error message.',
-      createdAt: '2021-08-20T08:30:18.123Z',
-      updatedAt: '2021-08-20T08:30:18.123Z',
-    },
-  ];
+  issues: IIssue[];
 
-  constructor() {}
+  constructor(private issueService: IssuesService) {}
 
-  ngOnInit(): void {}
-  // ngOnInit() {
-  //   this.issueService.getIssues().subscribe(
-  //     (data: any) => {
-  //       this.issues = data.issues;
-  //     },
-  //     (error: any) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
+  ngOnInit() {
+    this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
+  }
   deleteIssue(issueId: string) {
     //   if (confirm('Are you sure you want to delete this issue?')) {
     //     this.issueService.deleteIssue(issueId).subscribe(

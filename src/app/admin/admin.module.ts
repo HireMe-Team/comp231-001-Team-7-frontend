@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
+import { IssueDetailsComponent } from './issue-details/issue-details.component';
 
 
 
@@ -12,7 +13,8 @@ import { IssueListComponent } from './issue-list/issue-list.component';
   declarations: [
     AdminLoginComponent,
     AdminDashboardComponent,
-    IssueListComponent
+    IssueListComponent,
+    IssueDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
     RouterModule.forChild([
       { path: '', component: AdminLoginComponent },
       { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'issue/:id', component: IssueDetailsComponent },
     ]),
   ],
   exports: [RouterModule]

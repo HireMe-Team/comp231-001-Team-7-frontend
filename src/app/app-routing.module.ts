@@ -12,6 +12,8 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { AddEducationComponent } from './user/add-education/add-education.component';
 import { AddExperienceComponent } from './user/add-experience/add-experience.component';
 import { JobApplicationComponent } from './jobs/job-application/job-application.component';
+import { SecuritySettingsComponent } from './user/security-settings/security-settings.component';
+import { RlProfileComponent } from './user/rl-profile/rl-profile.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,10 @@ const routes: Routes = [
   { path: 'job-application/:id', component: JobApplicationComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
+    path: 'profile/security-settings',
+    component: SecuritySettingsComponent,
+  },
+  {
     path: 'profile/add-education',
     component: AddEducationComponent,
     canActivate: [AuthGuard],
@@ -34,15 +40,20 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'jobs-create', component: JobPostCreateComponent },
-  { path: 'create-cover-letter', component: CoverLetterComponent },
+  {
+    path: 'create-cover-letter',
+    component: CoverLetterComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'post/:id',
     component: JobPostComponent,
   },
   {
     path: 'users/profile/:id',
-    component: ProfileComponent,
+    component: RlProfileComponent,
   },
+
   {
     path: 'admin',
     loadChildren: () =>

@@ -85,8 +85,8 @@ export class UserService {
   public clearUserInfo() {
     localStorage.clear();
   }
-  getUser(userId: number): Observable<IUser> {
-    return this.http.get<IUser>(`${this.baseUrl}/users/user/${userId}`);
+  getUser(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/users/user/${userId}`);
   }
   uploadProfilePic(userId: number, downloadURL: string) {
     return this.http

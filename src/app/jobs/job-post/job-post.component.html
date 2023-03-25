@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="d-flex justify-content-between">
         <h2 class="card-title">{{ job.position }}</h2>
-        <a [routerLink]="['/job-application', job.id]" class="btn btn-primary">Apply</a>
+        <a [routerLink]="['/job-application', job._id]" class="btn btn-primary">Apply</a>
       </div>
       <h3 class="card-subtitle mb-3">{{ job.company }}</h3>
       <p class="card-text"><strong>Job Type:</strong> {{ job.type }}</p>
