@@ -9,6 +9,8 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { AddEducationComponent } from './user/add-education/add-education.component';
+import { AddExperienceComponent } from './user/add-experience/add-experience.component';
 import { JobApplicationComponent } from './jobs/job-application/job-application.component';
 
 const routes: Routes = [
@@ -21,6 +23,16 @@ const routes: Routes = [
   { path: 'jobs-posting', component: JobListComponent },
   { path: 'job-application/:id', component: JobApplicationComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile/add-education',
+    component: AddEducationComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile/add-experience',
+    component: AddExperienceComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'jobs-create', component: JobPostCreateComponent },
   { path: 'create-cover-letter', component: CoverLetterComponent },
   {

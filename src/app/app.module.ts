@@ -8,10 +8,21 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { JobsModule } from './jobs/jobs.module';
 import { UserModule } from './user/user.module';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [AppComponent, NavBarComponent, FooterComponent, HomeComponent],
-  imports: [FormsModule, BrowserModule, AppRoutingModule, JobsModule, UserModule],
+  imports: [
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    JobsModule,
+    UserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

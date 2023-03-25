@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, of } from 'rxjs';
 import IUser from '../models/user.model';
 import jwt_decode from 'jwt-decode';
+import IEducation from '../models/education.model';
+import { IExperience } from '../models/experience.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +13,7 @@ export class UserService {
     localStorage.setItem('token', token);
   }
   private readonly baseUrl = 'http://localhost:3000/api';
-  private currentUser: IUser;
+  currentUser: IUser;
   constructor(private http: HttpClient) {}
 
   register(user: IUser): Observable<any> {
@@ -33,8 +35,6 @@ export class UserService {
         map((response) => {
           const token = response.token;
           const userId = response.userId;
-          console.log({ token });
-          console.log({ userId });
           localStorage.setItem('token', token);
           localStorage.setItem('userId', userId);
           return response;
@@ -56,6 +56,19 @@ export class UserService {
     return of(requestBody);
   }
 
+  addEducation(education: IEducation, userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/add-education`, {
+      userId,
+      education,
+    });
+  }
+  addExperience(experience: IExperience, userId: number): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/add-experience`, {
+      userId,
+      experience,
+    });
+  }
+
   getToken() {
     return localStorage.getItem('token');
   }
@@ -64,11 +77,23 @@ export class UserService {
     if (token != null) {
       let decode: any = jwt_decode(token);
       const user: IUser = decode.user;
+      const userId: number = user.userId;
       return user;
     }
     return undefined;
   }
   public clearUserInfo() {
     localStorage.clear();
+  }
+  getUser(userId: number): Observable<IUser> {
+    return this.http.get<IUser>(`${this.baseUrl}/users/user/${userId}`);
+  }
+  uploadProfilePic(userId: number, downloadURL: string) {
+    return this.http
+      .post(`http://localhost:3000/api/users/upload-profile-pic`, {
+        userId,
+        url: downloadURL,
+      })
+      .subscribe((res) => console.log(res));
   }
 }
