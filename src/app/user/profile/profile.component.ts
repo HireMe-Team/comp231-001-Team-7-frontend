@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   ) {}
   selectedFile: File = null;
   user: IUser;
+  isRecruiter: Boolean;
   resumes = [];
   caution: String;
   caution_class: String = 'text-danger';
@@ -62,5 +63,7 @@ export class ProfileComponent implements OnInit {
     this.fileUploadService.getUserFiles(this.user.userId).subscribe((files) => {
       this.resumes = files.items;
     });
+
+    this.isRecruiter  = this.user.role === 'recruiter'
   }
 }

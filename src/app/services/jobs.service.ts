@@ -7,40 +7,42 @@ import IJob from '../models/job.model';
   providedIn: 'root',
 })
 export class JobsService {
-  private readonly baseUrl = 'http://localhost:3000/api';
+  private readonly baseUrl = 'http://localhost:3000/api/jobs';
   constructor(private http: HttpClient) {}
-  //Example of getting a list of jobs-seeking suggestion
-  getJobSeekingSuggestions(): Observable<
-    [{ id: number; title: string; body: string; userId: number }]
-  > {
-    return this.http.get<
-      [{ id: number; title: string; body: string; userId: number }]
-    >('https://jsonplaceholder.typicode.com/posts');
+  //---------------------- JOB HUNTING TIPS ----------------------//
+  getJobSeekingSuggestions(): Observable<any> {
+    return this.http.get(
+      `http://localhost:3000/api/admin/job-hunting-tips/all`
+    );
   }
-
+  createJobSeekingSuggestions(tip: {
+    title: string;
+    body: string;
+  }): Observable<any> {
+    return this.http.post(
+      `http://localhost:3000/api/admin/job-hunting-tips/create`,
+      tip
+    );
+  }
+  //---------------------- JOB POSTING ----------------------//
+  getAllJobs(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/all-jobs`);
+  }
   // getJobById(id): Observable<IJobInterface> {
-  getJobById(id: string): IJob {
-    const job: IJob = {
-      id: "asd123",
-      position: 'Web Developer',
-      company: 'Acme Inc.',
-      type: 'Full-time',
-      description:
-        'We are looking for a skilled web developer to join our team...',
-      qualifications:
-        "Bachelor's degree in Computer Science or equivalent experience...",
-      salary: '$80,000 - $100,000',
-      status: 'Open',
-      createDate: new Date('2023-03-22'),
-      closingDate: new Date('2023-04-22'),
-    };
-
-    return job;
+  getJobById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/job-details/${id}`);
   }
 
-  submitApplication(applicationInfo){
-   // TODO: to return http.post with the endpoint/ (e.g. POST job/application )
-   // reference: return this.http.post(`${this.baseUrl}/users/register`, user);
-    return of(true)
+  updateJobById(id: string, post: IJob): Observable<any> {
+    return this.http.put(`${this.baseUrl}/job-details/update/${id}`, post);
+  }
+
+  deleteJobById(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/job-details/update/${id}`);
+  }
+  submitApplication(applicationInfo) {
+    // TODO: to return http.post with the endpoint/ (e.g. POST job/application )
+    // reference: return this.http.post(`${this.baseUrl}/users/register`, user);
+    return of(true);
   }
 }

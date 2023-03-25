@@ -1,0 +1,103 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img
+            src="{{ user.profileImage }}"
+            class="rounded-circle avatar"
+            alt="Profile Image"
+            *ngIf="user.profileImage"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ user.firstName }} {{ user.lastName }} - {{ user.role }}
+            </h5>
+            <p class="card-text">{{ user.bio }}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Email:</strong> {{ user.email }}
+            </li>
+            <li class="list-group-item">
+              <strong>Phone:</strong> {{ user.phoneNumber }}
+            </li>
+            <li class="list-group-item">
+              <strong>Location:</strong> {{ user.location }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+        </div>
+          <!-- Experience -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Work Experience</h5>
+              <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let experience of user.experience"
+                >
+                  <h6>{{ experience.title }}</h6>
+                  <p>{{ experience.company }}</p>
+                  <p>{{ experience.location }}</p>
+                  <p>
+                    {{ experience.startDate | date }} -
+                    {{ experience.endDate | date }}
+                  </p>
+                  <p>{{ experience.description }}</p>
+                </li>
+              </ul>
+             
+            </div>
+          </div>
+          <!-- Education -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Education</h5>
+              <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let education of user.education"
+                >
+                  <h6>{{ education.degree }} in {{ education.category }}</h6>
+                  <p>{{ education.institution }}</p>
+                  <p>
+                    {{ education.startDate | date }} -
+                    {{ education.endDate | date }}
+                  </p>
+                  <p>{{ education.description }}</p>
+                </li>
+              </ul>
+          
+            </div>
+          </div>
+          <!-- Skills -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Skills</h5>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let skill of user.skills">
+                  {{ skill }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Resume -->
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Resume</h5>
+              <ul *ngIf="resumes.length > 0" class="list-group">
+                <li *ngFor="let resume of resumes" class="list-group-item">
+                  {{ resume.name }}
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

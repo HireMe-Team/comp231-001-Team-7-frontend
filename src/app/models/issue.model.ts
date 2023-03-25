@@ -1,0 +1,9 @@
+export default interface IIssue {
+  issueID: string;
+  title: string;
+  userId: number;
+  issueDetail: string;
+  status: string;
+  reportDate: Date;
+  replyMessage?: number;
+}

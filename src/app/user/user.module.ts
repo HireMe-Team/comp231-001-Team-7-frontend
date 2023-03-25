@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CoverLetterComponent } from './cover-letter/cover-letter.component';
 import { AddEducationComponent } from './add-education/add-education.component';
 import { AddExperienceComponent } from './add-experience/add-experience.component';
+import { RlProfileComponent } from './rl-profile/rl-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddExperienceComponent } from './add-experience/add-experience.componen
     CoverLetterComponent,
     AddEducationComponent,
     AddExperienceComponent,
+    RlProfileComponent,
   ],
   imports: [FormsModule, CommonModule],
 })

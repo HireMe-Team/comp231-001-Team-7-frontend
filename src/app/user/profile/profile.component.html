@@ -25,81 +25,106 @@
           </li>
         </ul>
       </div>
+      <div class="py-2">
+        <a href="/profile/security-settings" class="btn btn-warning"
+          >Security Setting</a
+        >
+      </div>
     </div>
     <div class="col-md-8">
       <div class="card">
         <div class="card mt-3">
           <div class="card-body">
             <h5 class="card-title">Upload Profile Image</h5>
-            <p ngClass="{{caution_class}}">{{caution}}</p>
-            <input type="file" class="form-control" (change)="onFileSelected($event)" />
+            <p ngClass="{{ caution_class }}">{{ caution }}</p>
+            <input
+              type="file"
+              class="form-control"
+              (change)="onFileSelected($event)"
+            />
             <button class="btn btn-primary mt-2" (click)="uploadProfileImage()">
               Upload
             </button>
           </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">Work Experience</h5>
-          <ul class="list-group">
-            <li
-              class="list-group-item"
-              *ngFor="let experience of user.experience"
+      </div>
+      <div *ngIf="!isRecruiter">
+        <!-- Experience -->
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Work Experience</h5>
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let experience of user.experience"
+              >
+                <h6>{{ experience.title }}</h6>
+                <p>{{ experience.company }}</p>
+                <p>{{ experience.location }}</p>
+                <p>
+                  {{ experience.startDate | date }} -
+                  {{ experience.endDate | date }}
+                </p>
+                <p>{{ experience.description }}</p>
+              </li>
+            </ul>
+            <a href="/profile/add-experience" class="btn btn-primary"
+              >Add Experience</a
             >
-              <h6>{{ experience.title }}</h6>
-              <p>{{ experience.company }}</p>
-              <p>{{ experience.location }}</p>
-              <p>
-                {{ experience.startDate | date }} -
-                {{ experience.endDate | date }}
-              </p>
-              <p>{{ experience.description }}</p>
-            </li>
-          </ul>
-          <a href="/profile/add-experience" class="btn btn-primary">Add Experience</a>
+          </div>
         </div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5 class="card-title">Education</h5>
-          <ul class="list-group">
-            <li
-              class="list-group-item"
-              *ngFor="let education of user.education"
+        <!-- Education -->
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Education</h5>
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let education of user.education"
+              >
+                <h6>{{ education.degree }} in {{ education.category }}</h6>
+                <p>{{ education.institution }}</p>
+                <p>
+                  {{ education.startDate | date }} -
+                  {{ education.endDate | date }}
+                </p>
+                <p>{{ education.description }}</p>
+              </li>
+            </ul>
+            <a href="/profile/add-education" class="btn btn-primary"
+              >Add education</a
             >
-              <h6>{{ education.degree }} in {{ education.category }}</h6>
-              <p>{{ education.institution }}</p>
-              <p>
-                {{ education.startDate | date }} -
-                {{ education.endDate | date }}
-              </p>
-              <p>{{ education.description }}</p>
-            </li>
-          </ul>
-          <a href="/profile/add-education" class="btn btn-primary">Add education</a>
+          </div>
         </div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5 class="card-title">Skills</h5>
-          <ul class="list-group">
-            <li class="list-group-item" *ngFor="let skill of user.skills">
-              {{ skill }}
-            </li>
-          </ul>
+        <!-- Skills -->
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Skills</h5>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let skill of user.skills">
+                {{ skill }}
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="card mt-3">
-        <div class="card-body">
-          <h5 class="card-title">Upload Resume</h5>
-          <ul *ngIf="resumes.length > 0" class="list-group">
-            <li *ngFor="let resume of resumes" class="list-group-item">
-              {{ resume.name }}
-            </li>
-          </ul>
-          <input type="file" class="form-control" (change)="onFileSelected($event)" />
-          <button class="btn btn-primary mt-2" (click)="uploadFile()">
-            Upload
-          </button>
+        <!-- Resume -->
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Upload Resume</h5>
+            <ul *ngIf="resumes.length > 0" class="list-group">
+              <li *ngFor="let resume of resumes" class="list-group-item">
+                {{ resume.name }}
+              </li>
+            </ul>
+            <input
+              type="file"
+              class="form-control"
+              (change)="onFileSelected($event)"
+            />
+            <button class="btn btn-primary mt-2" (click)="uploadFile()">
+              Upload
+            </button>
+          </div>
         </div>
       </div>
     </div>

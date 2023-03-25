@@ -6,33 +6,54 @@
     <span id="total-users">{{ totalUsers }}</span>
   </div>
 
-  <!-- TODO: Add form to create a new admin account -->
-  <form #adminForm="ngForm" (ngSubmit)="onSubmit(adminForm)">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        required
-        [(ngModel)]="email"
-      />
-    </div>
+  <div class="mb-3">
+    <form (ngSubmit)="approveRecruiter()" #recruiterForm="ngForm">
+      <label for="recruiter-select" class="form-label"
+        >Approve new Recruiter account:</label
+      >
+      <select
+        class="form-select"
+        id="recruiter-select"
+        name="recruiter-select"
+        [(ngModel)]="selectedRecruiter"
+      >
+        <option
+          *ngFor="let recruiter of unapprovedRecruiters"
+          [value]="recruiter.userId"
+        >
+          {{ recruiter.company }} - {{ recruiter.email }}
+        </option>
+      </select>
+      <button type="submit" class="btn btn-primary mt-2">Approve</button>
+    </form>
+  </div>
 
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        required
-        [(ngModel)]="password"
-      />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create Admin Account</button>
-  </form>
   <app-issue-list></app-issue-list>
+  <div class="mb-3">
+    <form (ngSubmit)="createJobHuntingTip()" #tipForm="ngForm">
+      <h2>Create Job Hunting Tips</h2>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          [(ngModel)]="tip.title"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Body:</label>
+        <textarea
+          class="form-control"
+          id="body"
+          name="body"
+          [(ngModel)]="tip.body"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
 </div>
