@@ -9,6 +9,7 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { JobApplicationComponent } from './jobs/job-application/job-application.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
+  { path: 'job-application/:id', component: JobApplicationComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'jobs-create', component: JobPostCreateComponent },
   { path: 'create-cover-letter', component: CoverLetterComponent },

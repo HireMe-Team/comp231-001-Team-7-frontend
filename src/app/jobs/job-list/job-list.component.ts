@@ -8,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class JobListComponent implements OnInit {
   jobs = [
     {
+      id: 'asd123',
       title: 'Software Engineer',
       description: 'A software engineer with 3+ years of experience...',
       location: 'New York, NY',
       image: 'https://via.placeholder.com/150',
     },
     {
+      id: '',
       title: 'Product Manager',
       description: 'A product manager with a strong background in...',
       location: 'San Francisco, CA',

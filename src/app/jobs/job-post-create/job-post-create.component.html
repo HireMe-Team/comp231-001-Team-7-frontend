@@ -2,31 +2,51 @@
     <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
       <div class="mb-3">
         <label for="position" class="form-label">Position</label>
-        <input type="text" class="form-control" id="position" name="position" [(ngModel)]="job.position" required>
+        <input type="text" class="form-control" id="position" name="position" 
+        #position="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!position.valid && position.touched">
+          Position is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="company" class="form-label">Company</label>
-        <input type="text" class="form-control" id="company" name="company" [(ngModel)]="job.company" required>
+        <input type="text" class="form-control" id="company" name="company"
+        #company="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!company.valid && company.touched">
+          Company is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="type" class="form-label">Job Type</label>
-        <input type="text" class="form-control" id="type" name="type" [(ngModel)]="job.type" required>
+        <input type="text" class="form-control" id="type" name="jobType" #jobType="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!jobType.valid && jobType.touched">
+          Job Type is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Job Description</label>
-        <textarea class="form-control" id="description" name="description" [(ngModel)]="job.description" required></textarea>
+        <textarea class="form-control" id="description" name="description"  #description="ngModel" ngModel required></textarea>
+        <div class="text-bg-danger" *ngIf="!description.valid && description.touched">
+          Job Description is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="qualifications" class="form-label">Qualifications</label>
-        <textarea class="form-control" id="qualifications" name="qualifications" [(ngModel)]="job.qualifications" required></textarea>
+        <textarea class="form-control" id="qualifications" name="qualifications"  #qualifications="ngModel" ngModel required></textarea>
+        <div class="text-bg-danger" *ngIf="!qualifications.valid && qualifications.touched">
+          Qualifications is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="salary" class="form-label">Salary</label>
-        <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="job.salary" required>
+        <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="job.salary">
       </div>
       <div class="mb-3">
         <label for="status" class="form-label">Status</label>
-        <input type="text" class="form-control" id="status" name="status" [(ngModel)]="job.status" required>
+        <input type="text" class="form-control" id="status" name="status" #status="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!status.valid && status.touched">
+          Status is required
+      </div>
       </div>
       <div class="mb-3">
         <label for="createDate" class="form-label">Create Date</label>
@@ -40,3 +60,11 @@
     </form>
   </div>
   
+  <!-- <div class="mb-3">
+    <label for="coverLetter" class="form-label">Cover Letter</label>
+    <textarea rows="4" cols="50" class="form-control" id="coverLetter" ngModel name="coverLetter"
+        #coverLetter="ngModel" required></textarea>
+    <div class="text-bg-danger" *ngIf="!coverLetter.valid && coverLetter.touched">
+        Cover Letter is required
+    </div>
+</div> -->
