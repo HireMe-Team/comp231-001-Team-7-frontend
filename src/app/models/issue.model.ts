@@ -1,4 +1,4 @@
-export default interface IIssue {
+export interface IIssue {
   issueID: string;
   title: string;
   userId: number;
@@ -6,4 +6,15 @@ export default interface IIssue {
   status: string;
   reportDate: Date;
   replyMessage?: number;
+}
+
+export interface IMessage {
+  userMessage?: {
+    postedTime: Date;
+    message: string;
+  };
+  adminReply?: {
+    postedTime?: Date;
+    message?: string;
+  };
 }

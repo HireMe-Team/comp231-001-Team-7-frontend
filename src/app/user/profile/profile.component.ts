@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { IIssue } from 'src/app/models/issue.model';
 import IUser from 'src/app/models/user.model';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { IssuesService } from 'src/app/services/issues.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -21,6 +23,8 @@ export class ProfileComponent implements OnInit {
   resumes = [];
   caution: String;
   caution_class: String = 'text-danger';
+
+  issues: IIssue[];
 
   uploadFile() {
     const filePath = this.selectedFile.name;
@@ -64,6 +68,9 @@ export class ProfileComponent implements OnInit {
       this.resumes = files.items;
     });
 
-    this.isRecruiter  = this.user.role === 'recruiter'
+    this.isRecruiter = this.user.role === 'recruiter';
+    this.userService.getUserIssues(this.user.userId).subscribe((issues) => {
+      this.issues = issues;
+    });
   }
 }

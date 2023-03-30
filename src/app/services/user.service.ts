@@ -96,4 +96,10 @@ export class UserService {
       })
       .subscribe((res) => console.log(res));
   }
+
+  getUserIssues(userId: number): Observable<any> {
+    return this.http.get(
+      `http://localhost:3000/api/users/user/issues/${userId}`
+    );
+  }
 }

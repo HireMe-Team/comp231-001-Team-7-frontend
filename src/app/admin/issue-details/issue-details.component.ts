@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import IIssue from 'src/app/models/issue.model';
+import { IIssue, IMessage } from 'src/app/models/issue.model';
 import { IssuesService } from 'src/app/services/issues.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { IssuesService } from 'src/app/services/issues.service';
 export class IssueDetailsComponent implements OnInit {
   issueId: string;
   issue: IIssue;
+  messages: IMessage;
   constructor(
     private route: ActivatedRoute,
     private issueService: IssuesService
@@ -22,5 +23,8 @@ export class IssueDetailsComponent implements OnInit {
       console.log(issue);
       this.issue = issue;
     });
+    this.issueService
+      .getMessage(this.issueId)
+      .subscribe((m) => (this.messages = m));
   }
 }
