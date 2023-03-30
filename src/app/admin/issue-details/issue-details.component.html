@@ -20,13 +20,33 @@
       </li>
       <div *ngIf="messages.userMessage">
         <p>User Messages:</p>
-        <p>{{messages.userMessage.message}}</p>
+        <p>{{ messages.userMessage.message }}</p>
       </div>
-      <div *ngIf="messages.adminReply">
-        <p>Admin Reply:</p>
-        <p>{{messages.adminReply.message}} - {{messages.adminReply.postedTime | date}}</p>
+      <div class="mb-3"></div>
+      <ul class="list-group list-group-flush" *ngIf="messages.adminReply">
+        <li class="list-group-item">Admin Reply:</li>
+        <li class="list-group-item">
+          {{ messages.adminReply.message }} -
+          {{ messages.adminReply.postedTime | date }}
+        </li>
+      </ul>
+      <div class="mb-3">
+        <h3>Add message to user</h3>
+        <form (ngSubmit)="adminAddMessage()" #tipForm="ngForm">
+          <div class="mb-3">
+            <label for="title" class="form-label">message:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              [(ngModel)]="form.message"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Add message</button>
+        </form>
       </div>
-      
     </ul>
   </div>
 </div>

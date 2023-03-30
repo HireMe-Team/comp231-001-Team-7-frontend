@@ -47,14 +47,12 @@
             </button>
           </div>
           <div class="card-body" *ngIf="issues">
-            <h5 class="card-title">Your issues</h5>
-            <hr>
+            <hr />
+            <h5 class="card-title">Your reported issues</h5>
             <div *ngFor="let issue of issues">
               <p>Title: {{issue.title}}</p>
               <p>Details: {{issue.issueDetail}}</p>
               <p>Submit Date: {{issue.reportDate | date}}</p>
-              <p>status: {{issue.status}}</p>
-              <hr>
             </div>
           </div>
         </div>

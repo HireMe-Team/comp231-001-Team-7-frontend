@@ -23,7 +23,9 @@ export class ProfileComponent implements OnInit {
   resumes = [];
   caution: String;
   caution_class: String = 'text-danger';
-
+  issueObject: {
+    
+  }
   issues: IIssue[];
 
   uploadFile() {
