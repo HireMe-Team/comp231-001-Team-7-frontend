@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Create Issue</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" class="form-control" formControlName="title">
+          </div>
+          <div class="mb-3">
+            <label for="userId" class="form-label">User ID:</label>
+            <input type="number" id="userId" class="form-control" formControlName="userId">
+          </div>
+          <div class="mb-3">
+            <label for="issueDetail" class="form-label">Issue Detail:</label>
+            <textarea id="issueDetail" class="form-control" formControlName="issueDetail"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

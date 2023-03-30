@@ -14,6 +14,7 @@ import { AddExperienceComponent } from './user/add-experience/add-experience.com
 import { JobApplicationComponent } from './jobs/job-application/job-application.component';
 import { SecuritySettingsComponent } from './user/security-settings/security-settings.component';
 import { RlProfileComponent } from './user/rl-profile/rl-profile.component';
+import { CreateIssueComponent } from './user/create-issue/create-issue.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'jobs-posting', component: JobListComponent },
-  { path: 'job-application/:id', component: JobApplicationComponent },
+  {
+    path: 'job-application/:id',
+    component: JobApplicationComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create-issue/:id',
+    component: CreateIssueComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'profile/security-settings',
