@@ -14,20 +14,29 @@
     <form *ngIf="showForm" #coverLetterForm="ngForm" (ngSubmit)="onSubmit(coverLetterForm)">
       <div class="mb-3">
         <label for="position" class="form-label">Position</label>
-        <input type="text" class="form-control" id="position" name="position" required [(ngModel)]="position">
+        <input type="text" class="form-control" id="position" name="position" #position="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!position.valid && position.touched">
+          Position is required
+      </div>
       </div>
   
       <div class="mb-3">
         <label for="company" class="form-label">Company</label>
-        <input type="text" class="form-control" id="company" name="company" required [(ngModel)]="company">
+        <input type="text" class="form-control" id="company" name="company" #company="ngModel" ngModel required>
+        <div class="text-bg-danger" *ngIf="!company.valid && company.touched">
+          Company is required
+      </div>
       </div>
   
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" name="message" rows="8" required [(ngModel)]="message"></textarea>
+        <textarea class="form-control" id="message" name="message" #message="ngModel" rows="8" ngModel required></textarea>
+        <div class="text-bg-danger" *ngIf="!message.valid && message.touched">
+          Message is required
+      </div>
       </div>
   
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" [disabled]="!coverLetterForm.form.valid" class="btn btn-primary">Submit</button>
     </form>
   </div>
   
