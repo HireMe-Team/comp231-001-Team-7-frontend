@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Featured Job Listings</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let job of featuredJobs">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">{{ job.title }}</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ job.description }}</p>
+          </div>
+          <div class="card-footer">
+            <p class="card-text">{{ job.location }}</p>
+            <a href="#" class="btn btn-primary">Apply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

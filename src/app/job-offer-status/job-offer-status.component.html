@@ -1,0 +1,19 @@
+<h1>Job Offer Status</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let jobOffer of jobOffers">
+      <td>{{ jobOffer.title }}</td>
+      <td>{{ jobOffer.location }}</td>
+      <td>{{ jobOffer.status }}</td>
+    </tr>
+  </tbody>
+</table>
+
