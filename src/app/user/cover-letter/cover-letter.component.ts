@@ -51,6 +51,10 @@ export class CoverLetterComponent {
     })
   }
 
+  deleteCoverLetter(coverLetter: any) {
+    this.userService.deleteCoverLetter(coverLetter);
+  }
+
   toggleForm() {
     this.showForm = !this.showForm;
   }
