@@ -56,6 +56,16 @@ export class UserService {
     return of(requestBody);
   }
 
+  editCoverLetter(coverLetter: any): Observable<any> {
+    const { position, company } = coverLetter;
+    return this.http.put(`${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`, coverLetter);
+  }
+
+  deleteCoverLetter(coverLetter: any): Observable<any> {
+    const { position, company } = coverLetter;
+    return this.http.delete(`${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`);
+  }
+
   addEducation(education: IEducation, userId: number): Observable<any> {
     return this.http.post(`${this.baseUrl}/users/add-education`, {
       userId,
