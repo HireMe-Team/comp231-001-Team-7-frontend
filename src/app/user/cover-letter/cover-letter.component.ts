@@ -51,6 +51,10 @@ export class CoverLetterComponent {
     })
   }
 
+  editCoverLetter(coverLetter: any) {
+    this.userService.editCoverLetter(coverLetter);
+  }
+
   deleteCoverLetter(coverLetter: any) {
     this.userService.deleteCoverLetter(coverLetter);
   }
