@@ -8,9 +8,6 @@
           <p class="card-text">{{ article.body }}</p>
           <small class="text-muted">{{ article.author }}</small>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">{{ article.date | date:'short' }}</small>
-        </div>
       </div>
       <div class="my-3" *ngIf="i % 2 === 1"></div>
     </div>

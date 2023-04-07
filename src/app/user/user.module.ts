@@ -10,6 +10,9 @@ import { AddEducationComponent } from './add-education/add-education.component';
 import { AddExperienceComponent } from './add-experience/add-experience.component';
 import { RlProfileComponent } from './rl-profile/rl-profile.component';
 import { CreateIssueComponent } from './create-issue/create-issue.component';
+import { RecruiterDashboardComponent } from './recruiter-dashboard/recruiter-dashboard.component';
+import { JobsModule } from '../jobs/jobs.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,14 @@ import { CreateIssueComponent } from './create-issue/create-issue.component';
     AddExperienceComponent,
     RlProfileComponent,
     CreateIssueComponent,
+    RecruiterDashboardComponent,
   ],
-  imports: [FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    JobsModule,
+    RouterModule,
+  ],
 })
 export class UserModule {}

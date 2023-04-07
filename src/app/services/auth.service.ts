@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserService } from './user.service';
+import IUser from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   isLoggedIn = false;
+  currentUser: IUser;
   updatePassword(
     currentPassword: string,
     newPassword: string,
@@ -18,7 +21,7 @@ export class AuthService {
       newPassword,
     });
   }
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     if (this.isAuthenticated()) {
       this.isLoggedIn = true;
     }
@@ -29,5 +32,9 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+  public isRecruiter(): Boolean {
+    this.currentUser = this.userService.getUserInfo();
+    return this.currentUser.role === 'recruiter' ? true : false;
   }
 }

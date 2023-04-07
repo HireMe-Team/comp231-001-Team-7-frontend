@@ -16,16 +16,17 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private fileUploadService: FileUploadService,
     private storage: AngularFireStorage
-  ) {}
+  ) {
+    this.user = this.userService.getUserInfo();
+    console.log(this.user);
+  }
   selectedFile: File = null;
   user: IUser;
   isRecruiter: Boolean;
   resumes = [];
   caution: String;
   caution_class: String = 'text-danger';
-  issueObject: {
-    
-  }
+  issueObject: {};
   issues: IIssue[];
 
   uploadFile() {
@@ -63,8 +64,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.userService.getUserInfo();
-    console.log(this.user);
     // get uploaded resume
     this.fileUploadService.getUserFiles(this.user.userId).subscribe((files) => {
       this.resumes = files.items;

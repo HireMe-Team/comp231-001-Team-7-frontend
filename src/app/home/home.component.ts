@@ -7,6 +7,9 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+onSearch($event: any) {
+throw new Error('Method not implemented.');
+}
   loggedIn : Boolean = false;
   constructor(private authService: AuthService) { }
 

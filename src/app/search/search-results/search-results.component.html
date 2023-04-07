@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2>Search Results</h2>
+    <p>Showing results for: {{ keywords }} - Type: {{ type }}</p>
+    <hr>
+    <div *ngFor="let job of searchResults" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ job.position }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ job.company }}</h6>
+        <p class="card-text">{{ job.description }}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Type:</strong> {{ job.type }}</li>
+          <li class="list-group-item"><strong>Qualifications:</strong> {{ job.qualifications }}</li>
+          <li class="list-group-item"><strong>Create Date:</strong> {{ job.createDate | date }}</li>
+        </ul>
+        <a [routerLink]="['/post', job._id]" class="btn btn-primary mt-3">View Details</a>
+      </div>
+    </div>
+  </div>
+  

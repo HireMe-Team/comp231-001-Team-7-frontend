@@ -30,7 +30,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/profile" *ngIf="loggedIn">
-            Hello {{ showingUsername }}
+            Your Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recruiter-dashboard" *ngIf="userRole === 'recruiter'">
+            Recruiter Dashboard 
           </a>
         </li>
         <li class="nav-item">

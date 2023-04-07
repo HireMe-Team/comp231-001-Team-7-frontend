@@ -9,4 +9,5 @@ export default interface IJob {
   status: string;
   createDate: Date;
   closingDate?: Date;
+  recruiterId: Number;
 }

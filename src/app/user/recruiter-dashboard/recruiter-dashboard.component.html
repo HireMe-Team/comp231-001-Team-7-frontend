@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h2>Your Job Posts</h2>
+  <hr />
+  <div class="row">
+    <div *ngFor="let jobPost of jobPosts" class="col-md-6 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ jobPost.position }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ jobPost.company }}</h6>
+          <p class="card-text">
+            {{ jobPost.description | slice : 0 : 200
+            }}{{ jobPost.description.length > 200 ? "..." : "" }}
+          </p>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Type:</strong> {{ jobPost.type }}
+            </li>
+            <li class="list-group-item">
+              <strong>Create Date:</strong> {{ jobPost.createDate | date }}
+            </li>
+          </ul>
+          <a [routerLink]="['/post', jobPost._id]" class="btn btn-primary mt-3">
+            View Details
+          </a>
+          <button class="btn btn-danger mt-3" (click)="onDelete(jobPost)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+<app-job-post-create></app-job-post-create>
