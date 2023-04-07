@@ -13,14 +13,21 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
-  caution: string = '';
+  cautionObj: { message: string; class: string } = {
+    message: '',
+    class: '',
+  };
   ngOnInit(): void {}
 
   login(): void {
     this.userService.login(this.loginInfo).subscribe((loginResult) => {
+      console.log(loginResult);
       if (loginResult.success) {
         this.userService.setUserInfo(loginResult.token);
         this.router.navigateByUrl('/');
+      } else {
+        this.cautionObj.message = loginResult.message;
+        this.cautionObj.class = 'text-danger';
       }
     });
   }

@@ -1,7 +1,7 @@
-<div class="container mt-5">
-  <div class="card">
+<div class="container my-5">
+  <div class="card shadow">
     <div class="card-body">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between" *ngIf="!showApplyButton">
         <h2 class="card-title">{{ job.position }}</h2>
         <a [routerLink]="['/job-application', job._id]" class="btn btn-primary">Apply</a>
       </div>
@@ -24,6 +24,6 @@
       </p>
     </div>
   </div>
-  <p>Fake posting? report this job posting for everyone</p>
-  <a class="btn btn-danger" [routerLink]="['/create-issue', job._id]">Report</a>
+  <p class="mt-3">Fake posting? Report this job posting for everyone:</p>
+  <a class="btn btn-danger mb-5" [routerLink]="['/create-issue', job._id]">Report</a>
 </div>

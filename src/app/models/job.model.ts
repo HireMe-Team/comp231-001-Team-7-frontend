@@ -10,4 +10,11 @@ export default interface IJob {
   createDate: Date;
   closingDate?: Date;
   recruiterId: Number;
+  applications: {
+    userId: String;
+    firstName: String;
+    lastName: String;
+    email: String;
+    resume: String;
+  }[];
 }

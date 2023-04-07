@@ -1,0 +1,32 @@
+.job-card {
+    background-color: #222;
+    border: none;
+    box-shadow: 0px 0px 25px -7px #000;
+    color: #fff;
+  }
+  
+  .job-card .card-body {
+    padding: 2rem;
+  }
+  
+  .job-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .job-card .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .job-card .text-muted {
+    font-size: 0.875rem;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+  }
+  

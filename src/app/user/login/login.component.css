@@ -1,0 +1,31 @@
+.card {
+    border: none;
+    border-radius: 0;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: red;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e50914;
+  }
+  
+  .btn-danger {
+    background-color: #e50914;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #b40811;
+  }
+  

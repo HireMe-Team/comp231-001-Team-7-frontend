@@ -13,6 +13,7 @@ company: any;
   createdAt?: Date;
   updatedAt?: Date;
   skills?: string[];
+  approved?: boolean;
   experience?: {
     title: string;
     company: string;
