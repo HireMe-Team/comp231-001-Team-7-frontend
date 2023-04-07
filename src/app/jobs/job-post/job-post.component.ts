@@ -24,4 +24,8 @@ throw new Error('Method not implemented.');
       });
     });
   }
+
+  deleteJobPost(id: string): void {
+    this.jobService.deleteJobById(id);
+  }
 }
