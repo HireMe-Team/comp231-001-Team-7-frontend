@@ -10,12 +10,12 @@ export class JobsService {
   deleteJobPost(_id: string) {
     throw new Error('Method not implemented.');
   }
-  private readonly baseUrl = 'http://localhost:3000/api/jobs';
+  private readonly baseUrl = 'https://hireme-s3wc.onrender.com/api/jobs';
   constructor(private http: HttpClient) {}
   //---------------------- JOB HUNTING TIPS ----------------------//
   getJobSeekingSuggestions(): Observable<any> {
     return this.http.get(
-      `http://localhost:3000/api/admin/job-hunting-tips/all`
+      `https://hireme-s3wc.onrender.com/api/admin/job-hunting-tips/all`
     );
   }
   createJobSeekingSuggestions(tip: {
@@ -23,7 +23,7 @@ export class JobsService {
     body: string;
   }): Observable<any> {
     return this.http.post(
-      `http://localhost:3000/api/admin/job-hunting-tips/create`,
+      `https://hireme-s3wc.onrender.com/api/admin/job-hunting-tips/create`,
       tip
     );
   }

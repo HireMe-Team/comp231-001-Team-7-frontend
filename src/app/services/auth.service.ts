@@ -15,7 +15,7 @@ export class AuthService {
     newPassword: string,
     userId: Number
   ): Observable<any> {
-    return this.http.post('http://localhost:3000/api/users/change-password', {
+    return this.http.post('https://hireme-s3wc.onrender.com/api/users/change-password', {
       userId,
       currentPassword,
       newPassword,
