@@ -12,7 +12,7 @@ export class UserService {
   public setUserInfo(token: string) {
     localStorage.setItem('token', token);
   }
-  private readonly baseUrl = 'http://localhost:3000/api';
+  private readonly baseUrl = 'https://hireme-s3wc.onrender.com/api';
   currentUser: IUser;
   constructor(private http: HttpClient) {}
 
@@ -34,7 +34,7 @@ export class UserService {
     message: string;
   }): Observable<any> {
     // TODO: to issue post request /api/user/cover-letter
-    // TODO: return this.http.post("http://localhost:3000/api/user/cover-letter", requestBody)
+    // TODO: return this.http.post("https://hireme-s3wc.onrender.com/api/user/cover-letter", requestBody)
     return of(requestBody);
   }
 
@@ -82,7 +82,7 @@ export class UserService {
   }
   uploadProfilePic(userId: number, downloadURL: string) {
     return this.http
-      .post(`http://localhost:3000/api/users/upload-profile-pic`, {
+      .post(`https://hireme-s3wc.onrender.com/api/users/upload-profile-pic`, {
         userId,
         url: downloadURL,
       })
@@ -91,7 +91,7 @@ export class UserService {
 
   getUserIssues(userId: number): Observable<any> {
     return this.http.get(
-      `http://localhost:3000/api/users/user/issues/${userId}`
+      `https://hireme-s3wc.onrender.com/api/users/user/issues/${userId}`
     );
   }
 }

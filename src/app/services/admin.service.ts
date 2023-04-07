@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
   constructor(private http: HttpClient) {}
-  private readonly baseUrl: string = 'http://localhost:3000/api/admin';
+  private readonly baseUrl: string = 'https://hireme-s3wc.onrender.com/api/admin';
   approveRecruiter(userId: number): Observable<any> {
     return this.http.put(`${this.baseUrl}/approve-recruiter/${userId}`, {
       userId,

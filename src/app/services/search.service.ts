@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchService {
-  private readonly baseUrl: string = 'http://localhost:3000/api/jobs';
+  private readonly baseUrl: string = 'https://hireme-s3wc.onrender.com/api/jobs';
   search(keywords: string, type: string): Observable<any> {
     return this.http.get(
       `${this.baseUrl}/search?keywords=${keywords}&type=${type}`

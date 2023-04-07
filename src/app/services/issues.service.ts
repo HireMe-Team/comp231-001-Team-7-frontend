@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class IssuesService {
-  private readonly baseUrl: string = 'http://localhost:3000/api/admin';
+  private readonly baseUrl: string = 'https://hireme-s3wc.onrender.com/api/admin';
   createIssue(issue) {
     return this.http.post(
-      'http://localhost:3000/api/users/issue/create',
+      'https://hireme-s3wc.onrender.com/api/users/issue/create',
       issue
     );
   }
