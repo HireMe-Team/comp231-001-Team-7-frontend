@@ -1,0 +1,29 @@
+.card {
+    border-radius: 10px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #e50914;
+    border: none;
+    
+  }
+  
+  .btn-danger {
+    background-color: #1f1f1f;
+    border: none;
+    font-weight: bold;
+  }
+  .btn-primary:hover {
+    background-color: #006aa5;
+    border-color: #006aa5;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    border-radius: 5px;
+  }
+  

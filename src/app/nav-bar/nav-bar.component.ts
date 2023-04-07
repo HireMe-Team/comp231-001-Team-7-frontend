@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  userRole: string;
+  userRole;
   loggedIn: Boolean = false;
   showingUsername: String | undefined;
   constructor(
@@ -23,7 +23,13 @@ export class NavBarComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.loggedIn = this.authService.isLoggedIn;
         this.showingUsername = this.userService.getUserInfo()?.firstName;
-        this.userRole = this.userService.getUserInfo()?.role;
+        const role = this.userService.getUserInfo()?.role;
+        if (role === 'admin' || role === 'recruiter' || role === 'job_seeker') {
+          this.userRole = role
+        }
+        else {
+          this.userRole = false;
+        }
       }
     });
   }

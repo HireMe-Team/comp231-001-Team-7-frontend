@@ -13,7 +13,7 @@ export class SearchBarComponent {
   };
   constructor(private router: Router) {}
   keywords: string = '';
-  type: string;
+  type: string = ""
 
   @Output() searchEvent = new EventEmitter();
 

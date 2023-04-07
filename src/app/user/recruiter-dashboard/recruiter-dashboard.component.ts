@@ -10,6 +10,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./recruiter-dashboard.component.css'],
 })
 export class RecruiterDashboardComponent implements OnInit {
+  showingForm: boolean = false;
+  showForm() {
+    this.showingForm = !this.showingForm;
+  }
   currentUser: IUser;
   onDelete(jobPost: IJob) {
     this.jobService.deleteJobById(jobPost._id).subscribe(() => {

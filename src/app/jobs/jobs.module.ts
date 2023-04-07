@@ -8,6 +8,7 @@ import { JobPostCreateComponent } from './job-post-create/job-post-create.compon
 import { FormsModule } from '@angular/forms';
 import { JobApplicationComponent } from './job-application/job-application.component';
 import { RouterModule } from '@angular/router';
+import { JobListPreviewComponent } from './job-list-preview/job-list-preview.component';
 
 
 @NgModule({
@@ -17,8 +18,9 @@ import { RouterModule } from '@angular/router';
     JobPostComponent,
     JobPostCreateComponent,
     JobApplicationComponent,
+    JobListPreviewComponent,
   ],
   imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
-  exports: [JobListComponent, JobHuntingSuggestionComponent, JobPostCreateComponent],
+  exports: [JobListComponent, JobHuntingSuggestionComponent, JobPostCreateComponent, JobListPreviewComponent],
 })
 export class JobsModule {}

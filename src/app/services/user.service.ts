@@ -20,26 +20,8 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/users/register`, user);
   }
 
-  login(loginInfo): Observable<{
-    success: boolean;
-    token: string;
-    userId: string;
-  }> {
-    return this.http
-      .post<{
-        success: boolean;
-        token: string;
-        userId: string;
-      }>(`${this.baseUrl}/users/login`, loginInfo)
-      .pipe(
-        map((response) => {
-          const token = response.token;
-          const userId = response.userId;
-          localStorage.setItem('token', token);
-          localStorage.setItem('userId', userId);
-          return response;
-        })
-      );
+  login(loginInfo): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/users/login`, loginInfo);
   }
 
   logout(): Observable<any> {

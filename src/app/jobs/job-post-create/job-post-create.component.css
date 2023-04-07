@@ -1,0 +1,11 @@
+.btn-primary {
+    background-color: #e50914;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-danger {
+    background-color: #1f1f1f;
+    border: none;
+    font-weight: bold;
+  }

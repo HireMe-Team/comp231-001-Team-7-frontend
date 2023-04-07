@@ -1,0 +1,34 @@
+.netflix-card {
+    background-color: #141414;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .netflix-card .card-title {
+    color: white;
+  }
+  
+  .netflix-card .card-text {
+    color: #bdbdbd;
+  }
+  
+  .netflix-card .btn-primary {
+    background-color: #e50914;
+    border-color: #e50914;
+  }
+  
+  .netflix-button {
+    color: #e50914;
+    border-color: #e50914;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .netflix-button:hover {
+    background-color: #e50914;
+    color: white;
+  }
+  

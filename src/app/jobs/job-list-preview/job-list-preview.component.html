@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">Job Posts</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let job of jobs | slice:0:visibleJobs">
+        <div class="card h-100 border-0 shadow netflix-card">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.position }}</h5>
+            <h5 class="card-title">at {{ job.company }}</h5>
+            <p class="card-text">
+              {{ job.description | slice : 0 : 100
+              }}{{ job.description.length > 100 ? "..." : "" }}
+            </p>
+            <p class="card-text">
+              <small class="text-muted">{{ job.location }}</small>
+            </p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a [routerLink]="['/post', job._id]" class="btn btn-primary"
+              >View Details</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-primary netflix-button" *ngIf="visibleJobs < jobs.length" (click)="showMore()">More</button>
+    </div>
+  </div>
+  

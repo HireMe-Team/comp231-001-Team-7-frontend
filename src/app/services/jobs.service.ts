@@ -50,9 +50,7 @@ export class JobsService {
   deleteJobById(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/job-details/update/${id}`);
   }
-  submitApplication(applicationInfo) {
-    // TODO: to return http.post with the endpoint/ (e.g. POST job/application )
-    // reference: return this.http.post(`${this.baseUrl}/users/register`, user);
-    return of(true);
+  submitApplication(application): Observable<any> {
+    return this.http.post(`${this.baseUrl}/submit-application`, application);
   }
 }
