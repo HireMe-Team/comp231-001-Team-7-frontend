@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import IJob from 'src/app/models/job.model';
+import IUser from 'src/app/models/user.model';
 import { JobsService } from 'src/app/services/jobs.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-job-post-create',
@@ -8,12 +11,30 @@ import { JobsService } from 'src/app/services/jobs.service';
   styleUrls: ['./job-post-create.component.css'],
 })
 export class JobPostCreateComponent implements OnInit {
-  job: IJob;
-  constructor(private jobService: JobsService) {}
+  currentUser: IUser;
+  jobPost = {
+    position: '',
+    company: '',
+    type: '',
+    description: '',
+    qualifications: '',
+    salary: '',
+    status: '',
+    createDate: new Date(),
+    closingDate: undefined,
+    recruiterId: NaN,
+  };
+  message: string;
+  constructor(private jobService: JobsService, userService: UserService) {
+    this.currentUser = userService.getUserInfo();
+    this.jobPost.recruiterId = this.currentUser.userId;
+  }
 
   ngOnInit(): void {}
-  onSubmit() {
-    console.log(this.job);
-    // Code to save the job post to the server goes here
+  onSubmit(form: NgForm) {
+    console.log(this.jobPost);
+    this.jobService
+      .createJobs(this.jobPost)
+      .subscribe((res) => console.log(res));
   }
 }

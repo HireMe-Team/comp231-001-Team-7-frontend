@@ -11,9 +11,11 @@ import { UserModule } from './user/user.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { SearchBarComponent } from './search/search-bar/search-bar.component';
+import { SearchResultsComponent } from './search/search-results/search-results.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, FooterComponent, HomeComponent],
+  declarations: [AppComponent, NavBarComponent, FooterComponent, HomeComponent, SearchBarComponent, SearchResultsComponent],
   imports: [
     FormsModule,
     BrowserModule,

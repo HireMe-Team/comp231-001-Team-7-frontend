@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-
+  userRole: string;
   loggedIn: Boolean = false;
   showingUsername: String | undefined;
   constructor(
@@ -19,21 +19,21 @@ export class NavBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.loggedIn = this.authService.isAuthenticated();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.loggedIn = this.authService.isLoggedIn;
         this.showingUsername = this.userService.getUserInfo()?.firstName;
+        this.userRole = this.userService.getUserInfo()?.role;
       }
     });
   }
   logout() {
     this.userService.logout().subscribe((res) => {
-          if (res.success) {
-            this.userService.clearUserInfo();
-            this.authService.isLoggedIn = false;
-            window.location.reload();
-          }
-        });
+      if (res.success) {
+        this.userService.clearUserInfo();
+        this.authService.isLoggedIn = false;
+        window.location.reload();
       }
+    });
+  }
 }

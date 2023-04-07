@@ -77,11 +77,23 @@
             name="role"
             aria-label="Role"
             required
+            (change)="onRoleChange()"
           >
             <option selected>Choose Role</option>
             <option value="job_seeker">Job Seeker</option>
             <option value="recruiter">Recruiter</option>
           </select>
+        </div>
+        <div class="mb-3" *ngIf="showCompanyInput">
+          <label for="company" class="form-label">Company</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            [(ngModel)]="user.company"
+            name="company"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>

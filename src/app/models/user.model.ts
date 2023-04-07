@@ -1,4 +1,5 @@
 export default interface IUser {
+company: any;
   userId?: number;
   email: string;
   password: string;

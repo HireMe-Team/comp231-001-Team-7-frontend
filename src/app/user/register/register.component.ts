@@ -18,23 +18,30 @@ export class RegisterComponent implements OnInit {
     phoneNumber: '',
     profileImage: '',
     bio: '',
-    location: ''
-
-  }
+    location: '',
+    company: '',
+  };
   name: string;
   email: string;
   password: string;
   role: string;
   message: string;
+  showCompanyInput: any;
 
   constructor(private userService: UserService) {}
-
+  onRoleChange() {
+    if (this.user.role === 'recruiter') {
+      this.showCompanyInput = true;
+    } else {
+      this.showCompanyInput = false;
+    }
+  }
   ngOnInit(): void {}
 
   onSubmit(userForm: NgForm): void {
     const user = userForm.value;
-   
-    const userObject= {
+
+    const userObject = {
       email: user.email,
       password: user.password,
       role: user.role,
@@ -43,15 +50,14 @@ export class RegisterComponent implements OnInit {
       phoneNumber: user.phoneNumber,
       profileImage: user.profileImage,
       bio: user.bio,
-      location: user.location
-    } as IUser 
+      location: user.location,
+      company: user.company
+    } as IUser;
     if (userForm.valid) {
-      
-      this.userService.register(userObject).subscribe(response => {
+      this.userService.register(userObject).subscribe((response) => {
         this.message = response.message;
         console.log(response);
       });
     }
-    
   }
 }

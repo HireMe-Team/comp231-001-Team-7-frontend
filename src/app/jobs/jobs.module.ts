@@ -19,6 +19,6 @@ import { RouterModule } from '@angular/router';
     JobApplicationComponent,
   ],
   imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
-  exports: [JobListComponent, JobHuntingSuggestionComponent],
+  exports: [JobListComponent, JobHuntingSuggestionComponent, JobPostCreateComponent],
 })
 export class JobsModule {}

@@ -7,6 +7,9 @@ import IJob from '../models/job.model';
   providedIn: 'root',
 })
 export class JobsService {
+  deleteJobPost(_id: string) {
+    throw new Error('Method not implemented.');
+  }
   private readonly baseUrl = 'http://localhost:3000/api/jobs';
   constructor(private http: HttpClient) {}
   //---------------------- JOB HUNTING TIPS ----------------------//
@@ -28,9 +31,16 @@ export class JobsService {
   getAllJobs(): Observable<any> {
     return this.http.get(`${this.baseUrl}/all-jobs`);
   }
+  getJobsByRecruiterId(recruiterId: Number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/recruiter-jobs/${recruiterId}`);
+  }
   // getJobById(id): Observable<IJobInterface> {
   getJobById(id: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/job-details/${id}`);
+  }
+
+  createJobs(jobs: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/create-job-postings`, jobs);
   }
 
   updateJobById(id: string, post: IJob): Observable<any> {
