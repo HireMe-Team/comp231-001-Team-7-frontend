@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateIssueComponent implements OnInit {
   issueForm: FormGroup;
-  currentUser : IUser;
+  currentUser: IUser;
   constructor(
     private formBuilder: FormBuilder,
     private issueService: IssuesService,
@@ -20,7 +20,6 @@ export class CreateIssueComponent implements OnInit {
     private router: Router
   ) {
     this.currentUser = this.userService.getUserInfo();
-    console.log(this.currentUser);
   }
 
   ngOnInit(): void {

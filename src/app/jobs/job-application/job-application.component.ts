@@ -1,3 +1,4 @@
+// Importing necessary modules and services
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import IJob from 'src/app/models/job.model';
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./job-application.component.css'],
 })
 export class JobApplicationComponent implements OnInit {
+  // Initializing variables
   currentUser: IUser;
   applicant = {
     jobId: '',
@@ -25,7 +27,7 @@ export class JobApplicationComponent implements OnInit {
   id: string;
   message: string;
   resumeUrl: any;
-
+  // Constructor that subscribes to route params and retrieves job data from the service
   constructor(
     private route: ActivatedRoute,
     private jobService: JobsService,
@@ -40,7 +42,8 @@ export class JobApplicationComponent implements OnInit {
       this.job = job;
     });
   }
-
+  // On initialization, retrieves user data from the service and sets applicant data accordingly
+  // Also retrieves user's resume file and its download URL
   ngOnInit(): void {
     this.currentUser = this.userService.getUserInfo();
     this.applicant.jobId = this.id;
@@ -57,12 +60,12 @@ export class JobApplicationComponent implements OnInit {
         });
       });
   }
+  // On form submission, sets applicant's resume to its download URL and submits the application
   onSubmit() {
     this.applicant.resume = this.resumeUrl;
     this.jobService.submitApplication(this.applicant).subscribe((res) => {
-      console.log(res);
       if (res.sucess) {
-        this.router.navigateByUrl("/")
+        this.router.navigateByUrl('/');
       }
     });
   }

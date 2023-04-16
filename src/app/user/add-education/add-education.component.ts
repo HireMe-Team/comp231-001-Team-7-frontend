@@ -24,13 +24,11 @@ export class AddEducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.userService.getUserInfo();
-    console.log(this.currentUser);
   }
   onSubmit() {
     this.userService
       .addEducation(this.education, this.currentUser.userId)
       .subscribe((res) => {
-        console.log(res);
       });
   }
 }

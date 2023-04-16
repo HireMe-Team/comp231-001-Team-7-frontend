@@ -29,12 +29,10 @@ export class SecuritySettingsComponent implements OnInit {
     }
 
     // Call the API to update the password
-    this.authService
-      .updatePassword(
-        this.currentPassword,
-        this.newPassword,
-        this.currentUser.userId
-      )
-      .subscribe((res) => console.log(res));
+    this.authService.updatePassword(
+      this.currentPassword,
+      this.newPassword,
+      this.currentUser.userId
+    );
   }
 }

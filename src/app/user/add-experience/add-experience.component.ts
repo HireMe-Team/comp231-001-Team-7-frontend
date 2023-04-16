@@ -25,11 +25,9 @@ export class AddExperienceComponent {
         .addExperience(this.experience, this.user.userId)
         .subscribe(
           (response) => {
-            console.log(response);
             form.resetForm();
           },
           (error) => {
-            console.log(error);
           }
         );
     }
