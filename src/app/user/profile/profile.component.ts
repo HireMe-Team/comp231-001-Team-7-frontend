@@ -35,6 +35,9 @@ export class ProfileComponent implements OnInit {
 
     task.snapshotChanges().subscribe((snapshot) => {
       console.log('Uploaded a file', snapshot);
+      if (snapshot.state === 'success') {
+        window.location.reload();
+      }
     });
   }
   uploadProfileImage() {
@@ -53,6 +56,7 @@ export class ProfileComponent implements OnInit {
         this.caution = 'Uploaded';
 
         fileRef.getDownloadURL().subscribe((url) => {
+          this.user.profileImage = url;
           this.userService.uploadProfilePic(this.user.userId, url);
         });
       }

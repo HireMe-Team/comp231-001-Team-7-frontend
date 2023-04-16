@@ -1,28 +1,50 @@
 <div class="container mt-5 mb-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2>Apply for {{ job.position }} at {{ job.company }}</h2>
-        <p>{{ job.description }}</p>
-        <form (ngSubmit)="onSubmit()">
-          <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" [(ngModel)]="applicant.firstName" name="firstName" required>
-          </div>
-          <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" [(ngModel)]="applicant.lastName" name="lastName" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" [(ngModel)]="applicant.email" name="email" required>
-          </div>
-          <p>Resume: {{applicant.resume.name}}</p>
-          <button type="submit" class="btn btn-primary">Submit Application</button>
-        </form>
-        <ng-container *ngIf="message">
-          <h3>{{ message }}</h3>
-        </ng-container>
-      </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Apply for {{ job.position }} at {{ job.company }}</h2>
+      <p>{{ job.description }}</p>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            [(ngModel)]="applicant.firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)]="applicant.lastName"
+            name="lastName"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="applicant.email"
+            name="email"
+            required
+          />
+        </div>
+        <p *ngIf="applicant.resume != undefined">Resume: {{ applicant.resume.name }}</p>
+        <button type="submit" class="btn btn-primary">
+          Submit Application
+        </button>
+      </form>
+      <ng-container *ngIf="message">
+        <h3>{{ message }}</h3>
+      </ng-container>
     </div>
   </div>
-  
+</div>

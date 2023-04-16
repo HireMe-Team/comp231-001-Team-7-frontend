@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import IJob from 'src/app/models/job.model';
 import IUser from 'src/app/models/user.model';
 import { JobsService } from 'src/app/services/jobs.service';
@@ -25,7 +26,11 @@ export class JobPostCreateComponent implements OnInit {
     recruiterId: NaN,
   };
   message: string;
-  constructor(private jobService: JobsService, userService: UserService) {
+  constructor(
+    private jobService: JobsService,
+    userService: UserService,
+    private route: Router
+  ) {
     this.currentUser = userService.getUserInfo();
     this.jobPost.recruiterId = this.currentUser.userId;
   }
@@ -33,8 +38,10 @@ export class JobPostCreateComponent implements OnInit {
   ngOnInit(): void {}
   onSubmit(form: NgForm) {
     console.log(this.jobPost);
-    this.jobService
-      .createJobs(this.jobPost)
-      .subscribe((res) => console.log(res));
+    this.jobService.createJobs(this.jobPost).subscribe((res) => {
+      if (res) {
+        window.location.reload()
+      }
+    });
   }
 }

@@ -8,6 +8,10 @@ import { JobsService } from 'src/app/services/jobs.service';
   styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashboardComponent implements OnInit {
+  messageObj = {
+    message: '',
+    class: '',
+  };
   constructor(
     private adminService: AdminService,
     private jobService: JobsService
@@ -40,10 +44,12 @@ export class AdminDashboardComponent implements OnInit {
     this.adminService
       .approveRecruiter(this.selectedRecruiter)
       .subscribe((data: any) => {
+        this.messageObj.message = "Approved"
         // Refresh the list of unapproved recruiters
         this.adminService.getUnapprovedRecruiters().subscribe((data: any) => {
           this.unapprovedRecruiters = data.unapprovedRecruiters;
         });
+        
       });
   }
 }
