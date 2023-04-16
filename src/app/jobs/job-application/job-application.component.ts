@@ -51,7 +51,7 @@ export class JobApplicationComponent implements OnInit {
     this.fileUploadService
       .getUserFiles(this.currentUser.userId)
       .subscribe((res) => {
-        this.applicant.resume = res.items[0];
+        this.applicant.resume = res.items[res.items.length - 1];
         this.applicant.resume.getDownloadURL().then((downloadURL) => {
           this.resumeUrl = downloadURL;
         });
@@ -60,8 +60,9 @@ export class JobApplicationComponent implements OnInit {
   onSubmit() {
     this.applicant.resume = this.resumeUrl;
     this.jobService.submitApplication(this.applicant).subscribe((res) => {
-      if (res.success) {
-        this.router.navigate(['/'])
+      console.log(res);
+      if (res.sucess) {
+        this.router.navigateByUrl("/")
       }
     });
   }
