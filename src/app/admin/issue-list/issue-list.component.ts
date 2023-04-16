@@ -1,7 +1,9 @@
+// Import necessary modules and services
 import { Component, OnInit } from '@angular/core';
 import { IIssue } from 'src/app/models/issue.model';
 import { IssuesService } from 'src/app/services/issues.service';
 
+// Define the component
 @Component({
   selector: 'app-issue-list',
   templateUrl: './issue-list.component.html',
@@ -10,22 +12,12 @@ import { IssuesService } from 'src/app/services/issues.service';
 export class IssueListComponent implements OnInit {
   issues: IIssue[];
 
+  // Inject necessary services
   constructor(private issueService: IssuesService) {}
 
+  // Initialize the component on page load
   ngOnInit() {
+    // Get the list of issues from the service
     this.issueService.getIssues().subscribe((issues) => (this.issues = issues));
-  }
-  deleteIssue(issueId: string) {
-    //   if (confirm('Are you sure you want to delete this issue?')) {
-    //     this.issueService.deleteIssue(issueId).subscribe(
-    //       (data: any) => {
-    //         console.log(`Issue with ID ${issueId} deleted`);
-    //         this.issues = this.issues.filter(issue => issue._id !== issueId);
-    //       },
-    //       (error: any) => {
-    //         console.error(error);
-    //       }
-    //     );
-    //   }
   }
 }

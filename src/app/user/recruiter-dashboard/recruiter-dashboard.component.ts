@@ -34,7 +34,5 @@ export class RecruiterDashboardComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-    console.log(this.jobPosts);
-  }
+  ngOnInit(): void {}
 }

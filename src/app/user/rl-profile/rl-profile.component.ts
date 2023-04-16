@@ -11,16 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 export class RlProfileComponent implements OnInit {
   id: number;
   user: IUser;
-  resumes: any = []
+  resumes: any = [];
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.userService.getUser(this.id).subscribe((user) => {
-      console.log(user);
       this.user = user;
     });
   }

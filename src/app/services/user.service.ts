@@ -40,12 +40,17 @@ export class UserService {
 
   editCoverLetter(coverLetter: any): Observable<any> {
     const { position, company } = coverLetter;
-    return this.http.put(`${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`, coverLetter);
+    return this.http.put(
+      `${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`,
+      coverLetter
+    );
   }
 
   deleteCoverLetter(coverLetter: any): Observable<any> {
     const { position, company } = coverLetter;
-    return this.http.delete(`${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`);
+    return this.http.delete(
+      `${this.baseUrl}/user/cover-letter?position=${position}&company=${company}`
+    );
   }
 
   addEducation(education: IEducation, userId: number): Observable<any> {
@@ -81,12 +86,13 @@ export class UserService {
     return this.http.get<any>(`${this.baseUrl}/users/user/${userId}`);
   }
   uploadProfilePic(userId: number, downloadURL: string) {
-    return this.http
-      .post(`https://hireme-s3wc.onrender.com/api/users/upload-profile-pic`, {
+    return this.http.post(
+      `https://hireme-s3wc.onrender.com/api/users/upload-profile-pic`,
+      {
         userId,
         url: downloadURL,
-      })
-      .subscribe((res) => console.log(res));
+      }
+    );
   }
 
   getUserIssues(userId: number): Observable<any> {

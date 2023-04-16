@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
     private storage: AngularFireStorage
   ) {
     this.user = this.userService.getUserInfo();
-    console.log(this.user);
   }
   selectedFile: File = null;
   user: IUser;
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit {
     const task = this.fileUploadService.uploadFile(filePath, this.selectedFile);
 
     task.snapshotChanges().subscribe((snapshot) => {
-      console.log('Uploaded a file', snapshot);
       if (snapshot.state === 'success') {
         window.location.reload();
       }
